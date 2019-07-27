@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
   compileSdkVersion 28
-
 
   defaultConfig {
     minSdkVersion 19
@@ -11,7 +11,6 @@ android {
     versionName "1.0"
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
   }
 
   buildTypes {
@@ -20,12 +19,24 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
-
+  compileOptions {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+  }
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
 }
 
 dependencies {
+  def commonMark = '0.13.0'
+  def strikt = '0.21.1'
   implementation 'androidx.appcompat:appcompat:1.0.2'
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test:runner:1.2.0'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+  implementation "com.atlassian.commonmark:commonmark:$commonMark"
+  implementation "com.atlassian.commonmark:commonmark-ext-gfm-tables:$commonMark"
+  testImplementation "io.strikt:strikt-core:$strikt"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
