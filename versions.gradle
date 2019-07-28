@@ -1,0 +1,34 @@
+def versions = [:]
+versions.target_sdk = 28
+versions.min_sdk = 19
+versions.android = '3.4.2'
+versions.kotlin = '1.3.41'
+versions.androidx_test_runner = '1.2.0'
+versions.androidx_test_ext = '1.1.1'
+versions.appcompat = '1.0.2'
+versions.junit = '4.12'
+versions.constraintlayout = '1.1.3'
+versions.strikt = '0.21.1'
+versions.commonmark = '0.13.0'
+ext.versions = versions
+
+def deps = [:]
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android"
+deps.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+deps.android_test_runner = "androidx.test:runner:$versions.androidx_test_runner"
+deps.android_test_runner_ext = "androidx.test.ext:junit:$versions.androidx_test_ext"
+deps.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
+deps.junit = "junit:junit:$versions.junit"
+deps.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+deps.strikt = "io.strikt:strikt-core:$versions.strikt"
+deps.commonmark = "com.atlassian.commonmark:commonmark:$versions.commonmark"
+deps.commonmark_tables = "com.atlassian.commonmark:commonmark-ext-gfm-tables:$versions.commonmark"
+ext.deps = deps
+
+static def addRepos(RepositoryHandler handler) {
+  handler.mavenCentral()
+  handler.google()
+  handler.jcenter()
+}
+ext.addRepos = this.&addRepos

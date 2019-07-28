@@ -2,11 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion versions.target_sdk
 
   defaultConfig {
-    minSdkVersion 19
-    targetSdkVersion 28
+    minSdkVersion versions.min_sdk
+    targetSdkVersion versions.target_sdk
     versionCode 1
     versionName "1.0"
 
@@ -29,14 +29,12 @@ android {
 }
 
 dependencies {
-  def commonMark = '0.13.0'
-  def strikt = '0.21.1'
-  implementation 'androidx.appcompat:appcompat:1.0.2'
-  testImplementation 'junit:junit:4.12'
-  androidTestImplementation 'androidx.test:runner:1.2.0'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-  implementation "com.atlassian.commonmark:commonmark:$commonMark"
-  implementation "com.atlassian.commonmark:commonmark-ext-gfm-tables:$commonMark"
-  testImplementation "io.strikt:strikt-core:$strikt"
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  testImplementation deps.junit
+  androidTestImplementation deps.android_test_runner
+  androidTestImplementation deps.android_test_runner_ext
+  implementation deps.commonmark
+  implementation deps.commonmark_tables
+  testImplementation deps.strikt
+  androidTestImplementation deps.strikt
+  implementation deps.kotlin_stdlib
 }
