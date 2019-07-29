@@ -37,4 +37,5 @@ dependencies {
   testImplementation deps.strikt
   androidTestImplementation deps.strikt
   implementation deps.kotlin_stdlib
+  testImplementation deps.mockk
 }
