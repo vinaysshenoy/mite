@@ -11,6 +11,7 @@ versions.constraintlayout = '1.1.3'
 versions.strikt = '0.21.1'
 versions.commonmark = '0.13.0'
 versions.mockk = '1.9.3'
+versions.junitParams = '1.1.1'
 ext.versions = versions
 
 def deps = [:]
@@ -26,6 +27,7 @@ deps.strikt = "io.strikt:strikt-core:$versions.strikt"
 deps.commonmark = "com.atlassian.commonmark:commonmark:$versions.commonmark"
 deps.commonmark_tables = "com.atlassian.commonmark:commonmark-ext-gfm-tables:$versions.commonmark"
 deps.mockk = "io.mockk:mockk:${versions.mockk}"
+deps.junitParams = "pl.pragmatists:JUnitParams:${versions.junitParams}"
 ext.deps = deps
 
 static def addRepos(RepositoryHandler handler) {

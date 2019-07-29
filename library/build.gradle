@@ -38,4 +38,5 @@ dependencies {
   androidTestImplementation deps.strikt
   implementation deps.kotlin_stdlib
   testImplementation deps.mockk
+  testImplementation deps.junitParams
 }

@@ -17,6 +17,8 @@ mite: 1 -> 2
 # associated with the most recent order. It
 # should be set to NULL otherwise.
 
+-- verify-tables: doesExist=User,Order doesNotExist=PhoneNumber
+
 -- verify-schema: table=User
 |id                 |name         |dob          |email-address|
 |-------------------|-------------|-------------|-------------|
